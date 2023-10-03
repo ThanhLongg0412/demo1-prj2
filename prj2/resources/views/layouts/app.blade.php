@@ -37,7 +37,7 @@
                 </svg>
             </a>
             <ul class="header-nav d-none d-md-flex">
-                <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('aa-home') }}">Dashboard</a></li>
             </ul>
             <ul class="header-nav ms-auto">
 
@@ -48,12 +48,6 @@
                         {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-end pt-0">
-                        <a class="dropdown-item" href="{{ route('profile.show') }}">
-                            <svg class="icon me-2">
-                                <use xlink:href="{{ asset('icons/coreui.svg#cil-user') }}"></use>
-                            </svg>
-                            {{ __('My profile') }}
-                        </a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -74,13 +68,7 @@
             @yield('content')
         </div>
     </div>
-    <footer class="footer">
-        <div><a href="https://coreui.io">CoreUI </a><a href="https://coreui.io">Bootstrap Admin Template</a> &copy; 2021
-            creativeLabs.
-        </div>
-        <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/bootstrap/ui-components/">CoreUI UI
-                Components</a></div>
-    </footer>
+    @include('layouts.footer')
 </div>
 <script src="{{ asset('js/coreui.bundle.min.js') }}"></script>
 </body>

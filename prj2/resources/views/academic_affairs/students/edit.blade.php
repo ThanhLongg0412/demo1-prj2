@@ -11,8 +11,9 @@
                         <input class="form-control" name="name" placeholder="Tên sinh viên" value="{{ $user->name }}" autocomplete="off" style="margin-top: 20px">
                         <input class="form-control" name="student_code" placeholder="Mã sinh viên" value="{{ $user->student_code }}" autocomplete="off" style="margin-top: 20px">
                         <input class="form-control" name="email" placeholder="Email" value="{{ $user->email }}" autocomplete="off" style="margin-top: 20px">
+                        <input type="password" class="form-control" name="password" placeholder="Mật khẩu" value="{{ $user->password }}" autocomplete="off" style="margin-top: 20px" required>
                         <select name="class_name" style="margin-top: 20px" >
-                            <option>Chọn lớp/option>
+                            <option>Chọn lớp</option>
                             @foreach($classes as $class)
                                 <option value="{{ $class->class_id }}">{{ $class->class_name }}</option>
                             @endforeach

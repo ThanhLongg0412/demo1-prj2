@@ -69,10 +69,10 @@ class AaStudentController extends Controller
         ]);
         if($result){
             flash()->addSuccess('Cập nhật thành công!');
-            return redirect()->route('aa-class');
+            return redirect()->route('aa-student');
         }else {
             flash()->addError('Cập nhật thất bại!');
-            return redirect()->route('aa-class');
+            return redirect()->route('aa-student');
         }
     }
 

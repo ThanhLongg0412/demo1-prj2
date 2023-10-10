@@ -63,6 +63,8 @@
                                 <option value="{{ $major -> major_id }}">{{ $major -> major_name }}</option>
                             @endforeach
                         </select>
+                        <input class="form-control" name="class_name" placeholder="Tên lớp" autocomplete="off">
+                        <input type="number" min="1" class="form-control" name="school_year" placeholder="Niên khóa" autocomplete="off" style="margin-top: 20px">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Đóng</button>

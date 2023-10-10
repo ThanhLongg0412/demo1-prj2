@@ -14,7 +14,6 @@ class ClassController extends Controller
         ->select('classes.*', 'majors.major_name as major_name')->paginate(5);
         $majors = DB::table('majors')->get();
         return view('academic_affairs.classes.index', ['classes' => $classes, 'majors' => $majors]);
-
     }
 
     function createClass(Request $request){
@@ -48,7 +47,8 @@ class ClassController extends Controller
         }
     }
 
-    function updateClassById(Request $request){
+    function updateClassById(Request $request)
+    {
         $class_id = $request->input('class_id');
         $class_name = $request->input('class_name');
         $school_year = $request->input('school_year');
@@ -66,6 +66,7 @@ class ClassController extends Controller
             return redirect()->route('aa-class');
         }
     }
+
     function edit(Request $request){
         $class_id = $request->input('class_id');
         $classes = DB::table('classes')

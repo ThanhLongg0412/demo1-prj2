@@ -43,7 +43,7 @@
                 @endforelse
                 </tbody>
             </table>
-{{--            {{ $classes->links() }}--}}
+            {{ $users->links() }}
         </div>
     </div>
 

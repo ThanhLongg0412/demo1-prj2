@@ -11,7 +11,7 @@
                         <input class="form-control" name="class_name" placeholder="Tên lớp" value="{{ $class->class_name }}" autocomplete="off" >
                         <input type="number" min="1" class="form-control" name="school_year" placeholder="Niên khóa" value="{{ $class->school_year }}" autocomplete="off" style="margin-top: 20px" >
                         <select name="major_name" style="margin-top: 20px" >
-                            <option>Chọn chuyên ngành</option>
+                            <option value="{{ $class->major_id }}">{{ $class->major_name }}</option>
                             @foreach($majors as $major)
                                 <option value="{{ $major->major_id }}">{{ $major->major_name }}</option>
                             @endforeach

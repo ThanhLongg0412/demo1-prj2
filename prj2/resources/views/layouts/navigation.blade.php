@@ -9,6 +9,15 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link" href="{{ route('aa-point-class') }}">
+            <svg class="nav-icon">
+                <use xlink:href="{{ asset('icons/coreui.svg#cil-user') }}"></use>
+            </svg>
+            Quản lý điểm
+        </a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('aa-student') }}">
             <svg class="nav-icon">
                 <use xlink:href="{{ asset('icons/coreui.svg#cil-user') }}"></use>
@@ -44,7 +53,7 @@
         </a>
         <ul class="nav-group-items" style="height: 0px;">
             <li class="nav-item">
-                <a class="nav-link" href="#" target="_top">
+                <a class="nav-link" href="{{ route('aa-subject-BTEC') }}" target="_top">
                     <svg class="nav-icon">
                         <use xlink:href="{{ asset('icons/coreui.svg#cil-bug') }}"></use>
                     </svg>
@@ -52,7 +61,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" target="_top">
+                <a class="nav-link" href="{{ route('aa-subject-BK') }}" target="_top">
                     <svg class="nav-icon">
                         <use xlink:href="{{ asset('icons/coreui.svg#cil-bug') }}"></use>
                     </svg>

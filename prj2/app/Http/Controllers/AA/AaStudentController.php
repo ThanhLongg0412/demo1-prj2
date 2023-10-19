@@ -9,9 +9,10 @@ use Illuminate\Support\Facades\DB;
 class AaStudentController extends Controller
 {
     function index(){
-        $users = DB::table('users')->where('role', '=', 0)
-            ->join('classes', 'users.class_id', '=', 'classes.class_id')
-            ->select('users.*', 'classes.class_name as class_name')->paginate(5);
+        $users = DB::table('users')
+        ->where('role', '=', 0)
+        ->join('classes', 'users.class_id', '=', 'classes.class_id')
+        ->select('users.*', 'classes.*')->paginate(5);
         $classes = DB::table('classes')->get();
         return view('academic_affairs.students.index', ['users' => $users, 'classes' => $classes]);
     }
@@ -24,7 +25,7 @@ class AaStudentController extends Controller
         $hashedPassword = bcrypt($password);
         $class_name = $request->input('class_name');
         $result = DB::table('users')->join('classes', 'users.class_id', '=', 'classes.class_id')
-            ->select('users.*', 'classes.class_name as class_name')->insert([
+            ->select('users.*', 'classes.*')->insert([
             'name' => $name,
             'student_code' => $student_code,
             'email' => $email,

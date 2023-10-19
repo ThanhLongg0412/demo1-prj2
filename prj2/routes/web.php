@@ -4,6 +4,9 @@ use App\Http\Controllers\AA\AAController;
 use App\Http\Controllers\AA\AaStudentController;
 use App\Http\Controllers\AA\ClassController;
 use App\Http\Controllers\AA\MajorController;
+use App\Http\Controllers\AA\PointController;
+use App\Http\Controllers\AA\SubjectBKController;
+use App\Http\Controllers\AA\SubjectBTECController;
 use App\Http\Controllers\Student\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -65,3 +68,35 @@ Route::post('/academic_affairs/student/delete', [AaStudentController::class, 'de
 Route::post('/academic_affairs/students/update', [AaStudentController::class, 'updateStudentById'])->name('aa-student-update');
 
 Route::get('/academic_affairs/students/edit', [AaStudentController::class, 'edit'])->name('aa-student-edit');
+
+
+
+Route::get('/academic_affairs/subjects/BK', [SubjectBKController::class, 'indexBK'])->name('aa-subject-BK');
+
+Route::post('/academic_affairs/subjects/BK', [SubjectBKController::class, 'createBK'])->name('aa-subject-createBK');
+
+Route::post('/academic_affairs/subjects/BK/delete', [SubjectBKController::class, 'deleteBKById'])->name('aa-subject-deleteBK');
+
+Route::post('/academic_affairs/subjects/BK/update', [SubjectBKController::class, 'updateBKById'])->name('aa-subject-updateBK');
+
+Route::get('/academic_affairs/subjects/BK/edit', [SubjectBKController::class, 'editBK'])->name('aa-subject-editBK');
+
+
+
+Route::get('/academic_affairs/subjects/BTEC', [SubjectBTECController::class, 'indexBTEC'])->name('aa-subject-BTEC');
+
+Route::post('/academic_affairs/subjects/BTEC', [SubjectBTECController::class, 'createBTEC'])->name('aa-subject-createBTEC');
+
+Route::post('/academic_affairs/subjects/BTEC/delete', [SubjectBTECController::class, 'deleteBTECById'])->name('aa-subject-deleteBTEC');
+
+Route::post('/academic_affairs/subjects/BTEC/update', [SubjectBTECController::class, 'updateBTECById'])->name('aa-subject-updateBTEC');
+
+Route::get('/academic_affairs/subjects/BTEC/edit', [SubjectBTECController::class, 'editBTEC'])->name('aa-subject-editBTEC');
+
+
+
+Route::get('academic_affairs/points/class', [PointController::class, 'indexClass'])->name('aa-point-class');
+
+Route::get('/academic_affairs/points/subject', [PointController::class, 'indexSubject'])->name('aa-point-subject');
+
+Route::get('/academic_affairs/points/detail', [PointController::class, 'indexDetail'])->name('aa-point-detail');

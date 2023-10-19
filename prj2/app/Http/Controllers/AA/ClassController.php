@@ -70,8 +70,9 @@ class ClassController extends Controller
     function edit(Request $request){
         $class_id = $request->input('class_id');
         $classes = DB::table('classes')
-            ->join('majors', 'classes.major_id', '=', 'majors.major_id')
-            ->select('classes.*', 'majors.major_name as major_name')->where('class_id', '=', $class_id)->get();
+        ->join('majors', 'classes.major_id', '=', 'majors.major_id')
+        ->select('classes.*', 'majors.major_name as major_name')
+        ->where('class_id', '=', $class_id)->get();
         $majors = DB::table('majors')->get();
         return view('academic_affairs.classes.edit', ['classes' => $classes, 'majors' => $majors]);
     }

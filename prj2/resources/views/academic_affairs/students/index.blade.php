@@ -22,7 +22,7 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->student_code }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->class_name }}</td>
+                        <td>{{ $user->class_name }}K{{ $user->school_year }}</td>
                         <td>
                             <form action="{{ route('aa-student-delete') }}" method="POST">
                                 @csrf
@@ -64,7 +64,7 @@
                         <select name="class_name" style="margin-top: 20px" required>
                             <option>Chọn lớp</option>
                             @foreach($classes as $class)
-                                <option value="{{ $class -> class_id }}">{{ $class -> class_name }}</option>
+                                <option value="{{ $class -> class_id }}">{{ $class -> class_name }}K{{ $class->school_year }}</option>
                             @endforeach
                         </select>
                     </div>

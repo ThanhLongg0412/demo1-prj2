@@ -15,7 +15,7 @@
                         <select name="class_name" style="margin-top: 20px" required>
                             <option value="{{ $user->class_id }}">{{ $user->class_name }}</option>
                             @foreach($classes as $class)
-                                <option value="{{ $class->class_id }}">{{ $class->class_name }}</option>
+                                <option value="{{ $class->class_id }}">{{ $class->class_name }}K{{ $class->school_year }}</option>
                             @endforeach
                         </select>
                     </div>

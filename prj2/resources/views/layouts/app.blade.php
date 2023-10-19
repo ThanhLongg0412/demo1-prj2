@@ -37,7 +37,7 @@
                 </svg>
             </a>
             <ul class="header-nav d-none d-md-flex">
-                <li class="nav-item"><a class="nav-link" href="{{ route('aa-home') }}">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('aa-home') }}">Trang chủ</a></li>
             </ul>
             <ul class="header-nav ms-auto">
 

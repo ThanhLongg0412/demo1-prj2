@@ -3,10 +3,10 @@
 @section('content')
     <div class="card mb-4">
         <div class="card-header">
-            {{ __('Dashboard') }}
+            Trang chủ
         </div>
         <div class="card-body">
-            {{ __('You are logged in!') }}
+            Đăng nhập thành công
         </div>
     </div>
 @endsection

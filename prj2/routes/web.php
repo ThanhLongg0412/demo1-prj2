@@ -99,4 +99,4 @@ Route::get('academic_affairs/points/class', [PointController::class, 'indexClass
 
 Route::get('/academic_affairs/points/subject', [PointController::class, 'indexSubject'])->name('aa-point-subject');
 
-Route::get('/academic_affairs/points/detail', [PointController::class, 'indexDetail'])->name('aa-point-detail');
+Route::get('/academic_affairs/points/point', [PointController::class, 'indexPoint'])->name('aa-point-point');

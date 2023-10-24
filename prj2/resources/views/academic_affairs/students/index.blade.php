@@ -24,16 +24,22 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->class_name }}K{{ $user->school_year }}</td>
                         <td>
-                            <form action="{{ route('aa-student-delete') }}" method="POST">
-                                @csrf
-                                <input name="id" hidden value="{{ $user->id }}">
-                                <button class="btn btn-danger">Xóa</button>
-                            </form>
-                            <form action="{{ route('aa-student-edit') }}" method="GET">
-                                @csrf
-                                <input name="id" hidden value="{{ $user->id }}">
-                                <button class="btn btn-warning">Cập nhật</button>
-                            </form>
+                            <div class="row">
+                                <div class="col-2">
+                                    <form action="{{ route('aa-student-delete') }}" method="POST">
+                                        @csrf
+                                        <input name="id" hidden value="{{ $user->id }}">
+                                        <button class="btn btn-danger">Xóa</button>
+                                    </form>
+                                </div>
+                                <div class="col-4">
+                                    <form action="{{ route('aa-student-edit') }}" method="GET">
+                                        @csrf
+                                        <input name="id" hidden value="{{ $user->id }}">
+                                        <button class="btn btn-warning">Cập nhật</button>
+                                    </form>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 @empty

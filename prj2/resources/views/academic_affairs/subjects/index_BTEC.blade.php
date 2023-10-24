@@ -22,16 +22,22 @@
                         <td>{{ $subject->exam_times }}</td>
                         <td>{{ $subject->major_name }}</td>
                         <td>
-                            <form action="{{ route('aa-subject-deleteBTEC') }}" method="POST">
-                                @csrf
-                                <input name="subject_id" hidden value="{{ $subject->subject_id }}">
-                                <button class="btn btn-danger">Xóa</button>
-                            </form>
-                            <form action="{{ route('aa-subject-editBTEC') }}" method="GET">
-                                @csrf
-                                <input name="subject_id" hidden value="{{ $subject->subject_id }}">
-                                <button class="btn btn-warning">Cập nhật</button>
-                            </form>
+                            <div class="row">
+                                <div class="col-2">
+                                    <form action="{{ route('aa-subject-deleteBTEC') }}" method="POST">
+                                        @csrf
+                                        <input name="subject_id" hidden value="{{ $subject->subject_id }}">
+                                        <button class="btn btn-danger">Xóa</button>
+                                    </form>
+                                </div>
+                                <div class="col-4">
+                                    <form action="{{ route('aa-subject-editBTEC') }}" method="GET">
+                                        @csrf
+                                        <input name="subject_id" hidden value="{{ $subject->subject_id }}">
+                                        <button class="btn btn-warning">Cập nhật</button>
+                                    </form>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 @empty

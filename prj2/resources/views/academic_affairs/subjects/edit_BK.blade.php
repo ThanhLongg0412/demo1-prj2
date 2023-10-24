@@ -3,6 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
+            <h1>Cập nhật môn CĐN Bách Khoa</h1>
             @foreach($subjects as $subject)
                 <form action="{{ route('aa-subject-updateBK') }}" method="POST">
                     @csrf

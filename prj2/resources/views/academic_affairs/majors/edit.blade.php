@@ -3,6 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
+            <h1>Cập nhật chuyên ngành</h1>
             @foreach($majors as $major)
                 <form action="{{ route('aa-major-update') }}" method="POST">
                     @csrf

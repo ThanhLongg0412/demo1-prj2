@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AA;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AaStudentController extends Controller
 {
@@ -22,7 +23,7 @@ class AaStudentController extends Controller
         $student_code = $request->input('student_code');
         $email = $request->input('email');
         $password = $request->input('password');
-        $hashedPassword = bcrypt($password);
+        $hashedPassword = Hash::make($password);
         $class_name = $request->input('class_name');
         $result = DB::table('users')->join('classes', 'users.class_id', '=', 'classes.class_id')
             ->select('users.*', 'classes.*')->insert([
@@ -59,7 +60,7 @@ class AaStudentController extends Controller
         $student_code = $request->input('student_code');
         $email = $request->input('email');
         $password = $request->input('password');
-        $hashedPassword = bcrypt($password);
+        $hashedPassword = Hash::make($password);
         $class_name = $request->input('class_name');
         $result = DB::table('users')->where('id', '=', $id)->update([
             'name' => $name,

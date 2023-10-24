@@ -18,16 +18,22 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $major->major_name }}</td>
                             <td>
-                                <form action="{{ route('aa-major-delete') }}" method="POST">
-                                    @csrf
-                                    <input name="class_id" hidden value="{{ $major->major_id }}">
-                                    <button class="btn btn-danger">Xóa</button>
-                                </form>
-                                <form action="{{ route('aa-major-edit') }}" method="GET">
-                                    @csrf
-                                    <input name="major_id" hidden value="{{ $major->major_id }}">
-                                    <button class="btn btn-warning">Cập nhật</button>
-                                </form>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <form action="{{ route('aa-major-delete') }}" method="POST">
+                                            @csrf
+                                            <input name="class_id" hidden value="{{ $major->major_id }}">
+                                            <button class="btn btn-danger">Xóa</button>
+                                        </form>
+                                    </div>
+                                    <div class="col-3">
+                                        <form action="{{ route('aa-major-edit') }}" method="GET">
+                                            @csrf
+                                            <input name="major_id" hidden value="{{ $major->major_id }}">
+                                            <button class="btn btn-warning">Cập nhật</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     @empty

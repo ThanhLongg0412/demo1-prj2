@@ -2,14 +2,14 @@
 
 @section('content')
     <div class="row">
-        @foreach($class_subject as $class_subjectt)
+        @foreach($class_subjects as $class_subject)
             <div class="col-lg-2">
                 <div class="card card-chart">
                     <div class="card-header">
-                        <form action="{{ route('aa-point-detail') }}" method="GET">
+                        <form action="{{ route('aa-point-point') }}" method="GET">
                             @csrf
-                            <input name="class_id" hidden value="{{ $class_subjectt->subject_id }}">
-                            <button class="btn btn-primary">{{ $class_subjectt->subject_name }}</button>
+                            <input name="subject_id" hidden value="{{ $class_subject->subject_id }}">
+                            <button class="btn btn-primary">{{ $class_subject->subject_name }} - Lần {{ $class_subject->exam_times }}</button>
                         </form>
                     </div>
                 </div>

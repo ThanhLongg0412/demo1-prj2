@@ -22,16 +22,22 @@
                             <td>K{{ $class->school_year }}</td>
                             <td>{{ $class->major_name }}</td>
                             <td>
-                                <form action="{{ route('aa-class-delete') }}" method="POST">
-                                    @csrf
-                                    <input name="class_id" hidden value="{{ $class->class_id }}">
-                                    <button class="btn btn-danger">Xóa</button>
-                                </form>
-                                <form action="{{ route('aa-class-edit') }}" method="GET">
-                                    @csrf
-                                    <input name="class_id" hidden value="{{ $class->class_id }}">
-                                    <button class="btn btn-warning">Cập nhật</button>
-                                </form>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <form action="{{ route('aa-class-delete') }}" method="POST">
+                                            @csrf
+                                            <input name="class_id" hidden value="{{ $class->class_id }}">
+                                            <button class="btn btn-danger">Xóa</button>
+                                        </form>
+                                    </div>
+                                    <div class="col-4">
+                                        <form action="{{ route('aa-class-edit') }}" method="GET">
+                                            @csrf
+                                            <input name="class_id" hidden value="{{ $class->class_id }}">
+                                            <button class="btn btn-warning">Cập nhật</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     @empty
@@ -63,8 +69,6 @@
                                 <option value="{{ $major -> major_id }}">{{ $major -> major_name }}</option>
                             @endforeach
                         </select>
-                        <input class="form-control" name="class_name" placeholder="Tên lớp" autocomplete="off">
-                        <input type="number" min="1" class="form-control" name="school_year" placeholder="Niên khóa" autocomplete="off" style="margin-top: 20px">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Đóng</button>

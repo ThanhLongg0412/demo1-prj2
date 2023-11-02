@@ -26,7 +26,7 @@ class PointController extends Controller
             ->where('class_subjects.class_id', '=', $class_id)
             ->join('classes', 'class_subjects.class_id', '=', 'classes.class_id')
             ->join('subjects', 'class_subjects.subject_id', '=', 'subjects.subject_id')
-            ->select('classes.*', 'subjects.*')
+            ->select('classes.*', 'subjects.*', 'class_subjects.*')
             ->paginate(10);
         $classes = DB::table('classes')->get();
         $subjects = DB::table('subjects')->get();
@@ -34,17 +34,41 @@ class PointController extends Controller
     }
 
     function indexPoint(Request $request){
-        $subject_id = $request->input('subject_id');
-        $class_subject_students = DB::table('class_subject_students')
-            ->where('class_subjects.subject_id', '=', $subject_id)
-            ->join('users', 'class_subject_students.id', '=', 'users.id')
-            ->join('class_subjects', 'class_subject_students.cs_id', '=', 'class_subjects.cs_id')
-            ->select('users.*', 'class_subjects.*')->get();
-        $users = DB::table('users')->get();
-        $class_subjects = DB::table('class_subjects')->get();
+        $cs_id = $request->input('cs_id');
         $points = DB::table('points')
             ->join('class_subject_students', 'points.css_id', '=', 'class_subject_students.css_id')
-            ->select('points.*', 'class_subject_students.*')->get();
+            ->join('users', 'class_subject_students.id', '=', 'users.id')
+            ->join('class_subjects', 'class_subject_students.cs_id', '=', 'class_subjects.cs_id')
+            ->where('class_subject_students.cs_id', '=', $cs_id)
+            ->select('points.*', 'class_subject_students.*', 'users.*', 'class_subjects.*')->get();
+        $class_subject_students = DB::table('class_subject_students')->get();
+        $users = DB::table('users')->get();
+        $class_subjects = DB::table('class_subjects')->get();
         return view('academic_affairs.points.index_point', ['class_subject_students' => $class_subject_students, 'class_subjects' => $class_subjects, 'users' => $users, 'points' => $points]);
+
+        function edit(Request $request){
+            $point_id = $request->input('point_id');
+            $points = DB::table('points')->where('point_id', '=', $point_id)->get();
+            return view('academic_affairs.points.edit_point', ['points' => $points]);
+        }
+
+        function insert(Request $request){
+            $point_id = $request->input('point_id');
+            $theory = $request->input('theory');
+            $practice = $request->input('practice');
+            $asm = $request->input('asm');
+            $result = DB::table('points')->where('point_id', '=', $point_id)->update([
+                'theory' => $theory,
+                'practice' => $practice,
+                'asm' => $asm
+            ]);
+            if($result){
+                flash()->addSuccess('Cập nhật thành công!');
+                return redirect()->route('aa-point-point');
+            }else {
+                flash()->addError('Cập nhật thất bại!');
+                return redirect()->route('aa-point-point');
+            }
+        }
     }
 }

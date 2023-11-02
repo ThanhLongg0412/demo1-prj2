@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Mockery\Exception;
+use PHPUnit\Framework\MockObject\Generator\DuplicateMethodException;
 
 class AaStudentController extends Controller
 {
@@ -25,20 +28,29 @@ class AaStudentController extends Controller
         $password = $request->input('password');
         $hashedPassword = Hash::make($password);
         $class_name = $request->input('class_name');
-        $result = DB::table('users')->join('classes', 'users.class_id', '=', 'classes.class_id')
-            ->select('users.*', 'classes.*')->insert([
-            'name' => $name,
-            'student_code' => $student_code,
-            'email' => $email,
-            'password' => $hashedPassword,
-            'class_id' => $class_name
-        ]);
-        if($result){
-            flash()->addSuccess('Thêm thành công!');
-            return redirect()->route('aa-student');
-        }else {
-            flash()->addError('Thêm thất bại!');
-            return redirect()->route('aa-student');
+        try {
+            $result = DB::table('users')->join('classes', 'users.class_id', '=', 'classes.class_id')
+                ->select('users.*', 'classes.*')->insert([
+                    'name' => $name,
+                    'student_code' => $student_code,
+                    'email' => $email,
+                    'password' => $hashedPassword,
+                    'class_id' => $class_name
+                ]);
+            if($result){
+                flash()->addSuccess('Thêm thành công!');
+                return redirect()->route('aa-student');
+            }else {
+                flash()->addError('Thêm thất bại!');
+                return redirect()->route('aa-student');
+            }
+        } catch (Exception $exception){
+            if ($exception instanceof DuplicateMethodException){
+                flash()->addError('Thêm thất bại!');
+                return redirect()->route('aa-student');
+            }else {
+                throw $exception;
+            }
         }
     }
 

@@ -8,7 +8,7 @@
                     <div class="card-header">
                         <form action="{{ route('aa-point-point') }}" method="GET">
                             @csrf
-                            <input name="subject_id" hidden value="{{ $class_subject->subject_id }}">
+                            <input name="cs_id" hidden value="{{ $class_subject->cs_id }}">
                             <button class="btn btn-primary">{{ $class_subject->subject_name }} - Lần {{ $class_subject->exam_times }}</button>
                         </form>
                     </div>

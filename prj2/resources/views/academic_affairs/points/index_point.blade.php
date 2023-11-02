@@ -3,6 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
+            <h1>Bảng điểm</h1>
             <table class="table table-striped table-responsive table-bordered">
                 <thead>
                 <tr>
@@ -27,9 +28,9 @@
                         <td>{{ $point->asm }}</td>
                         <td>{{ $point->result }}</td>
                         <td>
-                            <form action="{{ route('aa-point-insert') }}" method="GET">
+                            <form action="{{ route('aa-point-edit') }}" method="GET">
                                 @csrf
-                                <input name="major_id" hidden value="{{ $major->major_id }}">
+                                <input name="major_id" hidden value="{{ $point->point_id }}">
                                 <button class="btn btn-warning">Nhập điểm</button>
                             </form>
                         </td>

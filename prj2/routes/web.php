@@ -95,7 +95,7 @@ Route::get('/academic_affairs/subjects/BTEC/edit', [SubjectBTECController::class
 
 
 
-Route::get('academic_affairs/points/class', [PointController::class, 'indexClass'])->name('aa-point-class');
+Route::get('/academic_affairs/points/class', [PointController::class, 'indexClass'])->name('aa-point-class');
 
 Route::get('/academic_affairs/points/subject', [PointController::class, 'indexSubject'])->name('aa-point-subject');
 

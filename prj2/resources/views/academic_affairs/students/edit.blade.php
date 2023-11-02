@@ -20,9 +20,9 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary"><a href="{{ route('aa-student') }}" style="text-decoration: none">Đóng</a></button>
-                        <button type="submit" class="btn btn-primary">Xác nhận</button>
+                    <div class="modal-footer" style="margin-top: 20px">
+                        <button class="btn btn-secondary" style=""><a href="{{ route('aa-student') }}" style="text-decoration: none">Đóng</a></button>
+                        <button type="submit" class="btn btn-primary" style="margin-left: 20px">Xác nhận</button>
                     </div>
                 </form>
             @endforeach

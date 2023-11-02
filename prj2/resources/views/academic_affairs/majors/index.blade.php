@@ -57,7 +57,6 @@
                     @csrf
                     <div class="modal-body">
                         <input class="form-control" name="major_name" placeholder="Tên chuyên ngành" autocomplete="off" required>
-                        <input class="form-control" name="major_name" placeholder="Tên chuyên ngành" autocomplete="off">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Đóng</button>

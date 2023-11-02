@@ -13,9 +13,9 @@
                         <input type="number" min="0" max="10" class="form-control" name="practice" placeholder="Thực hành" value="{{ $point->practice }}" autocomplete="off" style="margin-top: 20px">
                         <input type="number" min="0" max="10" class="form-control" name="asm" placeholder="Assignment" value="{{ $point->asm }}" autocomplete="off" style="margin-top: 20px">
                     </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary"><a href="{{ route('aa-point-point') }}" style="text-decoration: none">Đóng</a></button>
-                        <button type="submit" class="btn btn-primary">Xác nhận</button>
+                    <div class="modal-footer" style="margin-top: 20px">
+                        <button class="btn btn-secondary"><a href="{{ redirect()->back()->getTargetUrl() }}" style="text-decoration: none">Đóng</a></button>
+                        <button type="submit" class="btn btn-primary" style="margin-left: 20px">Xác nhận</button>
                     </div>
                 </form>
             @endforeach

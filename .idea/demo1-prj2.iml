@@ -8,6 +8,8 @@
       <sourceFolder url="file://$MODULE_DIR$/prj2/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/prj2/tests/Feature" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/prj2/tests/Unit" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/prj2/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/prj2/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/prj2/vendor/dflydev/dot-access-data" />
@@ -123,6 +125,12 @@
       <excludeFolder url="file://$MODULE_DIR$/prj2/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/prj2/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/prj2/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/prj2/vendor/ezyang/htmlpurifier" />
+      <excludeFolder url="file://$MODULE_DIR$/prj2/vendor/maatwebsite/excel" />
+      <excludeFolder url="file://$MODULE_DIR$/prj2/vendor/maennchen/zipstream-php" />
+      <excludeFolder url="file://$MODULE_DIR$/prj2/vendor/markbaker/complex" />
+      <excludeFolder url="file://$MODULE_DIR$/prj2/vendor/markbaker/matrix" />
+      <excludeFolder url="file://$MODULE_DIR$/prj2/vendor/phpoffice/phpspreadsheet" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
